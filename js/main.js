@@ -18,3 +18,27 @@ function mostrarServicios(listaServicios) {
 }
 
 mostrarServicios(services);
+
+const filterButtons = document.querySelectorAll(".filter-button");
+
+filterButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        const filter = button.dataset.filter;
+
+        if (filter === "todos") {
+            mostrarServicios(services);
+        } else {
+            const serviciosFiltrados = services.filter(function(servicio) {
+                return servicio.category === filter;
+            });
+
+            mostrarServicios(serviciosFiltrados);
+        }
+
+        filterButtons.forEach(function(boton) {
+            boton.classList.remove("active");
+        });
+
+        button.classList.add("active");
+    });
+});
