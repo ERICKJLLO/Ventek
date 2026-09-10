@@ -444,3 +444,85 @@ footer {
     color: #666666;
     font-size: 13px;
 }
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 18px 20px;
+        flex-wrap: wrap;
+    }
+
+    nav ul {
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        order: 3;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    #inicio {
+        min-height: auto;
+        padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 44px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .button {
+        text-align: center;
+    }
+
+    #servicios,
+    #proceso,
+    #nosotros,
+    #contacto {
+        padding: 80px 20px;
+    }
+
+    .section-header h2 {
+        font-size: 34px;
+    }
+
+    #services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .process-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-text {
+        padding-top: 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 20px;
+    }
+
+    .footer-bottom {
+        padding: 20px;
+    }
+}
