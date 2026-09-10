@@ -149,3 +149,96 @@ nav ul a:hover {
     border-color: #006eff;
     color: #1683ff;
 }
+
+/* SERVICIOS */
+
+#servicios {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 30px;
+}
+
+.section-header {
+    max-width: 700px;
+    margin-bottom: 50px;
+}
+
+.section-label {
+    color: #006eff;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.section-header > p:last-child {
+    color: #a7a7a7;
+    font-size: 17px;
+}
+
+/* FILTROS */
+
+.service-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.filter-button {
+    padding: 10px 18px;
+    border: 1px solid #22252a;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #a7a7a7;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.filter-button:hover {
+    border-color: #006eff;
+    color: #f5f5f5;
+}
+
+.filter-button.active {
+    background-color: #006eff;
+    border-color: #006eff;
+    color: #ffffff;
+}
+
+/* TARJETAS */
+
+#services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    min-height: 210px;
+    padding: 30px;
+    border: 1px solid #22252a;
+    border-radius: 8px;
+    background-color: #0d0d0f;
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: #006eff;
+    transform: translateY(-4px);
+}
+
+.service-card h3 {
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #a7a7a7;
+    font-size: 15px;
+}
