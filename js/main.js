@@ -42,3 +42,64 @@ filterButtons.forEach(function(button) {
         button.classList.add("active");
     });
 });
+
+const serviceForm = document.getElementById("service-form");
+
+serviceForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const service = document.getElementById("service");
+    const clientType = document.getElementById("client-type");
+    const description = document.getElementById("description");
+
+    const nameError = document.getElementById("name-error");
+    const emailError = document.getElementById("email-error");
+    const serviceError = document.getElementById("service-error");
+    const clientTypeError = document.getElementById("client-type-error");
+    const descriptionError = document.getElementById("description-error");
+    const formMessage = document.getElementById("form-message");
+
+    nameError.textContent = "";
+    emailError.textContent = "";
+    serviceError.textContent = "";
+    clientTypeError.textContent = "";
+    descriptionError.textContent = "";
+    formMessage.textContent = "";
+
+    let formularioValido = true;
+
+    if (name.value.trim().length < 3) {
+        nameError.textContent = "El nombre debe tener al menos 3 caracteres.";
+        formularioValido = false;
+    }
+
+    if (email.value.trim() === "") {
+        emailError.textContent = "Ingresa tu correo electrónico.";
+        formularioValido = false;
+    } else if (!email.validity.valid) {
+        emailError.textContent = "Ingresa un correo electrónico válido.";
+        formularioValido = false;
+    }
+
+    if (service.value === "") {
+        serviceError.textContent = "Selecciona un servicio.";
+        formularioValido = false;
+    }
+
+    if (clientType.value === "") {
+        clientTypeError.textContent = "Selecciona el tipo de cliente.";
+        formularioValido = false;
+    }
+
+    if (description.value.trim().length < 20) {
+        descriptionError.textContent = "La descripción debe tener al menos 20 caracteres.";
+        formularioValido = false;
+    }
+
+    if (formularioValido) {
+        formMessage.textContent = "Solicitud validada correctamente.";
+        serviceForm.reset();
+    }
+});
