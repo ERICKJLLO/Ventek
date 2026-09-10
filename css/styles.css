@@ -385,3 +385,62 @@ nav ul a:hover {
     margin-top: 20px;
     color: #006eff;
 }
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #22252a;
+    background-color: #0d0d0f;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+}
+
+.footer-brand p {
+    max-width: 350px;
+    margin-top: 15px;
+    color: #a7a7a7;
+}
+
+.footer-links,
+.footer-services {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links h3,
+.footer-services h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.footer-links a,
+.footer-services a {
+    color: #a7a7a7;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-services a:hover {
+    color: #1683ff;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    border-top: 1px solid #22252a;
+}
+
+.footer-bottom p {
+    color: #666666;
+    font-size: 13px;
+}
