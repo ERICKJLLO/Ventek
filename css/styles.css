@@ -242,3 +242,43 @@ nav ul a:hover {
     color: #a7a7a7;
     font-size: 15px;
 }
+
+/* PROCESO */
+
+#proceso {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 30px;
+    border-top: 1px solid #22252a;
+}
+
+.process-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.process-step {
+    padding: 30px;
+    border: 1px solid #22252a;
+    border-radius: 8px;
+    background-color: #0d0d0f;
+}
+
+.process-step span {
+    display: block;
+    color: #006eff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.process-step h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.process-step p {
+    color: #a7a7a7;
+    font-size: 15px;
+}
