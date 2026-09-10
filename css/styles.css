@@ -282,3 +282,34 @@ nav ul a:hover {
     color: #a7a7a7;
     font-size: 15px;
 }
+
+/* SOBRE VENTEK */
+
+#nosotros {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 30px;
+    border-top: 1px solid #22252a;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.about-title h2 {
+    font-size: 42px;
+    line-height: 1.2;
+}
+
+.about-text {
+    padding-top: 30px;
+}
+
+.about-text p {
+    color: #a7a7a7;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
