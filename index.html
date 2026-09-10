@@ -201,6 +201,118 @@
         </section>
 
         <section id="contacto">
+
+            <div class="section-header">
+                <p class="section-label">SOLICITA TU SERVICIO</p>
+
+                <h2>
+                    Cuéntanos qué necesitas.
+                </h2>
+
+                <p>
+                    Envíanos los detalles de tu proyecto o equipo y
+                    revisaremos tu solicitud.
+                </p>
+            </div>
+
+            <form id="service-form">
+
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                    >
+                    <span class="error-message" id="name-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                    >
+                    <span class="error-message" id="email-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Servicio</label>
+
+                    <select id="service" name="service" required>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="pagina-web">
+                            Página web para negocio
+                        </option>
+                        <option value="landing-page">
+                            Landing page
+                        </option>
+                        <option value="portafolio">
+                            Portafolio digital
+                        </option>
+                        <option value="aplicacion-web">
+                            Aplicación web
+                        </option>
+                        <option value="mantenimiento-pc">
+                            Mantenimiento de PC
+                        </option>
+                        <option value="mantenimiento-laptop">
+                            Mantenimiento de laptop
+                        </option>
+                        <option value="mantenimiento-consola">
+                            Mantenimiento de consola
+                        </option>
+                        <option value="pasta-termica">
+                            Cambio de pasta térmica
+                        </option>
+                        <option value="optimizacion">
+                            Optimización de equipos
+                        </option>
+                    </select>
+
+                    <span class="error-message" id="service-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-type">Tipo de cliente</label>
+
+                    <select id="client-type" name="client-type" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="persona">Persona</option>
+                        <option value="emprendimiento">Emprendimiento</option>
+                        <option value="pequeno-negocio">
+                            Pequeño negocio
+                        </option>
+                    </select>
+
+                    <span class="error-message" id="client-type-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Cuéntanos qué necesitas</label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="6"
+                        minlength="20"
+                        required
+                    ></textarea>
+
+                    <span class="error-message" id="description-error"></span>
+                </div>
+
+                <button type="submit" class="button primary-button">
+                    Enviar solicitud
+                </button>
+
+                <p id="form-message"></p>
+
+            </form>
+
         </section>
 
     </main>
