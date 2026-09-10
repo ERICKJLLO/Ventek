@@ -109,4 +109,10 @@ const navMenu = document.getElementById("nav-menu");
 
 menuButton.addEventListener("click", function() {
     navMenu.classList.toggle("active");
+
+    if (navMenu.classList.contains("active")) {
+        menuButton.setAttribute("aria-label", "Cerrar menú");
+    } else {
+        menuButton.setAttribute("aria-label", "Abrir menú");
+    }
 });
