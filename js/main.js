@@ -75,10 +75,12 @@ serviceForm.addEventListener("submit", function(event) {
         formularioValido = false;
     }
 
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (email.value.trim() === "") {
         emailError.textContent = "Ingresa tu correo electrónico.";
         formularioValido = false;
-    } else if (!email.validity.valid) {
+    } else if (!emailPattern.test(email.value)) {
         emailError.textContent = "Ingresa un correo electrónico válido.";
         formularioValido = false;
     }
@@ -99,8 +101,24 @@ serviceForm.addEventListener("submit", function(event) {
     }
 
     if (formularioValido) {
-        formMessage.textContent = "Solicitud validada correctamente.";
-        serviceForm.reset();
+        fetch(serviceForm.action, {
+            method: serviceForm.method,
+            body: new FormData(serviceForm),
+            headers: {
+                Accept: "application/json"
+            }
+        })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("No se pudo enviar la solicitud.");
+                }
+
+                serviceForm.reset();
+                formMessage.textContent = "¡Solicitud enviada correctamente! Hemos recibido tu solicitud y nos pondremos en contacto contigo pronto.";
+            })
+            .catch(function() {
+                formMessage.textContent = "No se pudo enviar la solicitud. Inténtalo de nuevo.";
+            });
     }
 });
 
