@@ -4,14 +4,32 @@
     box-sizing: border-box;
 }
 
+:root {
+    --background: #050505;
+    --surface: #0d0d0f;
+    --text: #f5f5f5;
+    --text-secondary: #a7a7a7;
+    --border: #22252a;
+    --primary: #006eff;
+    --primary-hover: #1683ff;
+}
+
+body.light-mode {
+    --background: #ffffff;
+    --surface: #f5f5f5;
+    --text: #111111;
+    --text-secondary: #555555;
+    --border: #dddddd;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #050505;
-    color: #f5f5f5;
+    background-color: var(--background);
+    color: var(--text);
     line-height: 1.6;
 }
 
@@ -33,7 +51,7 @@ ul {
 
 header {
     width: 100%;
-    border-bottom: 1px solid #22252a;
+    border-bottom: 1px solid var(--border);
 }
 
 nav {
@@ -50,7 +68,7 @@ nav {
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 3px;
-    color: #f5f5f5;
+    color: var(--text);
 }
 
 nav ul {
@@ -60,26 +78,54 @@ nav ul {
 }
 
 nav ul a {
-    color: #a7a7a7;
+    color: var(--text-secondary);
     font-size: 15px;
     transition: color 0.3s ease;
 }
 
 nav ul a:hover {
-    color: #f5f5f5;
+    color: var(--text);
 }
 
 .nav-button {
     padding: 10px 18px;
-    background-color: #006eff;
+    background-color: var(--primary);
     color: #ffffff;
+    border: 1px solid var(--primary);
     border-radius: 6px;
     font-size: 14px;
     transition: background-color 0.3s ease;
 }
 
 .nav-button:hover {
-    background-color: #1683ff;
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.theme-button {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    background-color: var(--primary);
+    color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.theme-button:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
 }
 
 /* HERO */
@@ -98,7 +144,7 @@ nav ul a:hover {
 }
 
 .hero-label {
-    color: #006eff;
+    color: var(--primary);
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -113,7 +159,7 @@ nav ul a:hover {
 
 .hero-description {
     max-width: 650px;
-    color: #a7a7a7;
+    color: var(--text-secondary);
     font-size: 20px;
     margin-bottom: 35px;
 }
@@ -132,15 +178,16 @@ nav ul a:hover {
 }
 
 .primary-button {
-    border: none;
+    border: 1px solid var(--primary);
     outline: none;
-    background-color: #006eff;
+    background-color: var(--primary);
     color: #ffffff;
     cursor: pointer;
 }
 
 .primary-button:hover {
-    background-color: #1683ff;
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
 }
 
 .primary-button:focus {
@@ -148,13 +195,14 @@ nav ul a:hover {
 }
 
 .secondary-button {
-    border: 1px solid #22252a;
-    color: #f5f5f5;
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
 }
 
 .secondary-button:hover {
-    border-color: #006eff;
-    color: #1683ff;
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 /* SERVICIOS */
@@ -171,7 +219,7 @@ nav ul a:hover {
 }
 
 .section-label {
-    color: #006eff;
+    color: var(--primary);
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -185,7 +233,7 @@ nav ul a:hover {
 }
 
 .section-header > p:last-child {
-    color: #a7a7a7;
+    color: var(--text-secondary);
     font-size: 17px;
 }
 
@@ -199,22 +247,22 @@ nav ul a:hover {
 
 .filter-button {
     padding: 10px 18px;
-    border: 1px solid #22252a;
+    border: 1px solid var(--border);
     border-radius: 6px;
     background-color: transparent;
-    color: #a7a7a7;
+    color: var(--text-secondary);
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 .filter-button:hover {
-    border-color: #006eff;
-    color: #f5f5f5;
+    border-color: var(--primary);
+    color: var(--text);
 }
 
 .filter-button.active {
-    background-color: #006eff;
-    border-color: #006eff;
+    background-color: var(--primary);
+    border-color: var(--primary);
     color: #ffffff;
 }
 
@@ -229,24 +277,26 @@ nav ul a:hover {
 .service-card {
     min-height: 210px;
     padding: 30px;
-    border: 1px solid #22252a;
+    border: 1px solid var(--border);
     border-radius: 8px;
-    background-color: #0d0d0f;
+    background-color: var(--surface);
+    color: var(--text);
     transition: 0.3s ease;
 }
 
 .service-card:hover {
-    border-color: #006eff;
+    border-color: var(--primary);
     transform: translateY(-4px);
 }
 
 .service-card h3 {
     font-size: 21px;
     margin-bottom: 15px;
+    color: var(--text);
 }
 
 .service-card p {
-    color: #a7a7a7;
+    color: var(--text-secondary);
     font-size: 15px;
 }
 
@@ -256,7 +306,7 @@ nav ul a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 30px;
-    border-top: 1px solid #22252a;
+    border-top: 1px solid var(--border);
 }
 
 .process-container {
@@ -267,14 +317,14 @@ nav ul a:hover {
 
 .process-step {
     padding: 30px;
-    border: 1px solid #22252a;
+    border: 1px solid var(--border);
     border-radius: 8px;
-    background-color: #0d0d0f;
+    background-color: var(--surface);
 }
 
 .process-step span {
     display: block;
-    color: #006eff;
+    color: var(--primary);
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 25px;
@@ -286,7 +336,7 @@ nav ul a:hover {
 }
 
 .process-step p {
-    color: #a7a7a7;
+    color: var(--text-secondary);
     font-size: 15px;
 }
 
@@ -296,7 +346,7 @@ nav ul a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 30px;
-    border-top: 1px solid #22252a;
+    border-top: 1px solid var(--border);
 }
 
 .about-content {
@@ -316,7 +366,7 @@ nav ul a:hover {
 }
 
 .about-text p {
-    color: #a7a7a7;
+    color: var(--text-secondary);
     font-size: 17px;
     margin-bottom: 20px;
 }
@@ -327,7 +377,7 @@ nav ul a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 30px;
-    border-top: 1px solid #22252a;
+    border-top: 1px solid var(--border);
 }
 
 #contacto .section-header {
@@ -356,10 +406,10 @@ nav ul a:hover {
 .form-group textarea {
     width: 100%;
     padding: 13px 15px;
-    border: 1px solid #22252a;
+    border: 1px solid var(--border);
     border-radius: 6px;
-    background-color: #0d0d0f;
-    color: #f5f5f5;
+    background-color: var(--surface);
+    color: var(--text);
     outline: none;
     transition: border-color 0.3s ease;
 }
@@ -367,11 +417,16 @@ nav ul a:hover {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #006eff;
+    border-color: var(--primary);
 }
 
 .form-group textarea {
     resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-secondary);
 }
 
 .error-message {
@@ -383,14 +438,14 @@ nav ul a:hover {
 
 #form-message {
     margin-top: 20px;
-    color: #006eff;
+    color: var(--primary);
 }
 
 /* FOOTER */
 
 footer {
-    border-top: 1px solid #22252a;
-    background-color: #0d0d0f;
+    border-top: 1px solid var(--border);
+    background-color: var(--surface);
 }
 
 .footer-content {
@@ -405,7 +460,7 @@ footer {
 .footer-brand p {
     max-width: 350px;
     margin-top: 15px;
-    color: #a7a7a7;
+    color: var(--text-secondary);
 }
 
 .footer-links,
@@ -423,21 +478,21 @@ footer {
 
 .footer-links a,
 .footer-services a {
-    color: #a7a7a7;
+    color: var(--text-secondary);
     font-size: 14px;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover,
 .footer-services a:hover {
-    color: #1683ff;
+    color: var(--primary-hover);
 }
 
 .footer-bottom {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 30px;
-    border-top: 1px solid #22252a;
+    border-top: 1px solid var(--border);
 }
 
 .footer-bottom p {
@@ -451,7 +506,7 @@ footer {
     display: none;
     border: none;
     background-color: transparent;
-    color: #f5f5f5;
+    color: var(--text);
     font-size: 28px;
     cursor: pointer;
 }
@@ -497,6 +552,14 @@ footer {
 
     .hero-description {
         font-size: 17px;
+    }
+
+    .theme-button {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
     }
 
     .hero-buttons {

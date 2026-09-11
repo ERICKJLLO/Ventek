@@ -116,3 +116,24 @@ menuButton.addEventListener("click", function() {
         menuButton.setAttribute("aria-label", "Abrir menú");
     }
 });
+
+const themeButton = document.getElementById("theme-button");
+const savedTheme = localStorage.getItem("ventek-theme");
+
+function actualizarTema(esModoClaro) {
+    document.body.classList.toggle("light-mode", esModoClaro);
+    themeButton.textContent = esModoClaro ? "🌙" : "☀️";
+    themeButton.setAttribute(
+        "aria-label",
+        esModoClaro ? "Cambiar a modo oscuro" : "Cambiar a modo claro"
+    );
+}
+
+actualizarTema(savedTheme === "light");
+
+themeButton.addEventListener("click", function() {
+    const esModoClaro = !document.body.classList.contains("light-mode");
+
+    actualizarTema(esModoClaro);
+    localStorage.setItem("ventek-theme", esModoClaro ? "light" : "dark");
+});
