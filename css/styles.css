@@ -50,8 +50,17 @@ ul {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
     width: 100%;
+    background-color: var(--background);
     border-bottom: 1px solid var(--border);
+}
+
+section {
+    scroll-margin-top: 90px;
 }
 
 nav {
@@ -439,6 +448,41 @@ textarea::placeholder {
 #form-message {
     margin-top: 20px;
     color: var(--primary);
+}
+
+.success-modal[hidden] {
+    display: none;
+}
+
+.success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.success-modal-content {
+    width: min(100%, 460px);
+    padding: 35px;
+    background-color: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.success-modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.success-modal-content p {
+    margin-bottom: 25px;
+    color: var(--text-secondary);
 }
 
 /* FOOTER */

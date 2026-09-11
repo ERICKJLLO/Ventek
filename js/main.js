@@ -44,6 +44,17 @@ filterButtons.forEach(function(button) {
 });
 
 const serviceForm = document.getElementById("service-form");
+const successModal = document.getElementById("success-modal");
+const successModalButton = document.getElementById("success-modal-button");
+
+function limpiarMensajesFormulario() {
+    document.getElementById("name-error").textContent = "";
+    document.getElementById("email-error").textContent = "";
+    document.getElementById("service-error").textContent = "";
+    document.getElementById("client-type-error").textContent = "";
+    document.getElementById("description-error").textContent = "";
+    document.getElementById("form-message").textContent = "";
+}
 
 serviceForm.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -113,13 +124,19 @@ serviceForm.addEventListener("submit", function(event) {
                     throw new Error("No se pudo enviar la solicitud.");
                 }
 
-                serviceForm.reset();
-                formMessage.textContent = "¡Solicitud enviada correctamente! Hemos recibido tu solicitud y nos pondremos en contacto contigo pronto.";
+                successModal.hidden = false;
+                successModalButton.focus();
             })
             .catch(function() {
                 formMessage.textContent = "No se pudo enviar la solicitud. Inténtalo de nuevo.";
             });
     }
+});
+
+successModalButton.addEventListener("click", function() {
+    successModal.hidden = true;
+    serviceForm.reset();
+    limpiarMensajesFormulario();
 });
 
 const menuButton = document.getElementById("menu-button");
