@@ -142,13 +142,24 @@ successModalButton.addEventListener("click", function() {
 const menuButton = document.getElementById("menu-button");
 const navMenu = document.getElementById("nav-menu");
 const header = document.querySelector("header");
+const backToTopButton = document.getElementById("back-to-top-button");
 
 function actualizarEstadoHeader() {
-    header.classList.toggle("scrolled", window.scrollY > 80);
+    const hayScroll = window.scrollY > 80;
+
+    header.classList.toggle("scrolled", hayScroll);
+    backToTopButton.classList.toggle("visible", hayScroll);
 }
 
 actualizarEstadoHeader();
 window.addEventListener("scroll", actualizarEstadoHeader, { passive: true });
+
+backToTopButton.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
 
 menuButton.addEventListener("click", function() {
     navMenu.classList.toggle("active");
