@@ -110,8 +110,44 @@ nav ul a {
     transition: color 0.3s ease;
 }
 
-nav ul a:hover {
-    color: var(--text);
+nav ul a:hover,
+nav ul a:focus-visible {
+    background: linear-gradient(
+        90deg,
+        var(--primary) 0%,
+        #78b7ff 45%,
+        var(--primary) 100%
+    );
+    background-size: 220% 100%;
+    background-position: 0 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: nav-link-light-sweep 0.7s ease-out;
+}
+
+@keyframes nav-link-light-sweep {
+    from {
+        background-position: 100% 0;
+    }
+
+    to {
+        background-position: 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    nav ul a {
+        transition: none;
+    }
+
+    nav ul a:hover,
+    nav ul a:focus-visible {
+        background: none;
+        color: var(--primary);
+        -webkit-text-fill-color: currentColor;
+        animation: none;
+    }
 }
 
 .nav-button {
