@@ -12,6 +12,7 @@
     --border: #22252a;
     --primary: #006eff;
     --primary-hover: #1683ff;
+    --header-shadow: 0 8px 24px rgba(0, 110, 255, 0.16);
 }
 
 body.light-mode {
@@ -20,6 +21,7 @@ body.light-mode {
     --text: #111111;
     --text-secondary: #555555;
     --border: #dddddd;
+    --header-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
 }
 
 html {
@@ -76,7 +78,7 @@ nav {
 }
 
 header.scrolled {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    box-shadow: var(--header-shadow);
 }
 
 header.scrolled nav {
