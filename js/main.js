@@ -1,4 +1,21 @@
 const servicesContainer = document.getElementById("services-container");
+const serviceSelect = document.getElementById("service");
+
+function seleccionarServicio(servicioNombre) {
+    const opcionServicio = Array.from(serviceSelect.options).find(function(option) {
+        return option.textContent.trim() === servicioNombre;
+    });
+
+    if (!opcionServicio) {
+        return;
+    }
+
+    serviceSelect.value = opcionServicio.value;
+    document.getElementById("contacto").scrollIntoView({
+        behavior: "smooth"
+    });
+    serviceSelect.focus({ preventScroll: true });
+}
 
 function mostrarServicios(listaServicios) {
     servicesContainer.innerHTML = "";
@@ -7,11 +24,25 @@ function mostrarServicios(listaServicios) {
         const card = document.createElement("article");
 
         card.className = "service-card";
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", `Solicitar ${servicio.name}`);
 
         card.innerHTML = `
             <h3>${servicio.name}</h3>
             <p>${servicio.description}</p>
         `;
+
+        card.addEventListener("click", function() {
+            seleccionarServicio(servicio.name);
+        });
+
+        card.addEventListener("keydown", function(event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                seleccionarServicio(servicio.name);
+            }
+        });
 
         servicesContainer.appendChild(card);
     });

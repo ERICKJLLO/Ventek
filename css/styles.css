@@ -421,12 +421,15 @@ header.scrolled .nav-button {
     border-radius: 8px;
     background-color: var(--surface);
     color: var(--text);
+    cursor: pointer;
     transition: 0.3s ease;
 }
 
-.service-card:hover {
+.service-card:hover,
+.service-card:focus-visible {
     border-color: var(--primary);
     transform: translateY(-4px);
+    outline: none;
 }
 
 .service-card h3 {
