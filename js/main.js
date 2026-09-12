@@ -43,6 +43,26 @@ filterButtons.forEach(function(button) {
     });
 });
 
+const footerServiceLinks = document.querySelectorAll(".footer-services a");
+
+footerServiceLinks.forEach(function(link) {
+    link.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const filterButton = document.querySelector(
+            `.filter-button[data-filter="${link.dataset.filter}"]`
+        );
+
+        if (filterButton) {
+            filterButton.click();
+        }
+
+        document.getElementById("servicios").scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+
 const serviceForm = document.getElementById("service-form");
 const successModal = document.getElementById("success-modal");
 const successModalButton = document.getElementById("success-modal-button");
