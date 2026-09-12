@@ -141,6 +141,14 @@ successModalButton.addEventListener("click", function() {
 
 const menuButton = document.getElementById("menu-button");
 const navMenu = document.getElementById("nav-menu");
+const header = document.querySelector("header");
+
+function actualizarEstadoHeader() {
+    header.classList.toggle("scrolled", window.scrollY > 80);
+}
+
+actualizarEstadoHeader();
+window.addEventListener("scroll", actualizarEstadoHeader, { passive: true });
 
 menuButton.addEventListener("click", function() {
     navMenu.classList.toggle("active");

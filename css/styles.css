@@ -57,6 +57,7 @@ header {
     width: 100%;
     background-color: var(--background);
     border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 section {
@@ -71,6 +72,16 @@ nav {
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+    transition: padding 0.3s ease;
+}
+
+header.scrolled {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+header.scrolled nav {
+    padding-top: 11px;
+    padding-bottom: 11px;
 }
 
 .logo {
@@ -78,6 +89,11 @@ nav {
     font-weight: bold;
     letter-spacing: 3px;
     color: var(--text);
+    transition: font-size 0.3s ease;
+}
+
+header.scrolled .logo {
+    font-size: 21px;
 }
 
 nav ul {
@@ -104,6 +120,11 @@ nav ul a:hover {
     border-radius: 6px;
     font-size: 14px;
     transition: background-color 0.3s ease;
+}
+
+header.scrolled .nav-button {
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .nav-button:hover {
@@ -561,6 +582,11 @@ footer {
         padding: 18px 20px;
         flex-wrap: wrap;
         position: relative;
+    }
+
+    header.scrolled nav {
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 
     .menu-button {
