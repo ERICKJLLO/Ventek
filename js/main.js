@@ -163,6 +163,32 @@ const menuButton = document.getElementById("menu-button");
 const navMenu = document.getElementById("nav-menu");
 const header = document.querySelector("header");
 const backToTopButton = document.getElementById("back-to-top-button");
+const navLinks = document.querySelectorAll("nav ul a");
+const pageSections = document.querySelectorAll("main section[id]");
+
+function actualizarEnlaceActivo(sectionId) {
+    navLinks.forEach(function(link) {
+        link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+    });
+}
+
+const sectionObserver = new IntersectionObserver(
+    function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                actualizarEnlaceActivo(entry.target.id);
+            }
+        });
+    },
+    {
+        rootMargin: "-35% 0px -55% 0px",
+        threshold: 0
+    }
+);
+
+pageSections.forEach(function(section) {
+    sectionObserver.observe(section);
+});
 
 function actualizarEstadoHeader() {
     const hayScroll = window.scrollY > 80;

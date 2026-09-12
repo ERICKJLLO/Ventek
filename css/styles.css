@@ -111,7 +111,8 @@ nav ul a {
 }
 
 nav ul a:hover,
-nav ul a:focus-visible {
+nav ul a:focus-visible,
+nav ul a.active {
     background: linear-gradient(
         90deg,
         var(--primary) 0%,
@@ -142,7 +143,8 @@ nav ul a:focus-visible {
     }
 
     nav ul a:hover,
-    nav ul a:focus-visible {
+    nav ul a:focus-visible,
+    nav ul a.active {
         background: none;
         color: var(--primary);
         -webkit-text-fill-color: currentColor;
